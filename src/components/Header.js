@@ -3,7 +3,7 @@ import Nav from './Nav';
 function Header() {
     return (
         <header>
-            <img src='Horizontal logo.png' alt='logo' width='100'/>
+            <img src='Horizontal logo.png' alt='logo'/>
             <Nav/>
         </header>
     );
