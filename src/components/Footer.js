@@ -28,8 +28,8 @@ function Footer() {
                 <h5>Contact</h5>
                 <p>123 Main Street</p>
                 <p>Chicago, IL 12345</p>
-                <p>Phone: 876-555-1234</p>
-                <p>Email: little_lemon@example.com</p>
+                <p>876-555-1234</p>
+                <p><a href='mailto: little_lemon@example.com'>little_lemon@example.com</a></p>
             </section>
             <section className='socials'>
                 <h5>Visit us on social media!</h5>
