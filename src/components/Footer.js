@@ -26,6 +26,7 @@ function Footer() {
             </section>
             <section className='contact'>
                 <h5>Contact</h5>
+                <p>Little Lemon Bistro</p>
                 <p>123 Main Street</p>
                 <p>Chicago, IL 12345</p>
                 <p>876-555-1234</p>
