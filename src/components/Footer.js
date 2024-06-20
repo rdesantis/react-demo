@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -18,7 +19,9 @@ const Footer = () => {
     return (
         <footer>
             <section className='logo'>
-                <img src='Vertical logo.png' alt='logo' height='100'/>
+                <Link to='/'>
+                    <img src='Vertical logo.png' alt='logo' height='100'/>
+                </Link>
             </section>
             <section className='nav'>
                 <h5>Navigation</h5>

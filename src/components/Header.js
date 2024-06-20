@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nav from './Nav';
 
 const Header = () => {
@@ -7,7 +8,9 @@ const Header = () => {
                 <img src='Hamburger menu.svg' alt='hamburger' />
             </section>
             <section className='logo'>
-                <img src='Horizontal logo.png' alt='logo'/>
+                <Link to='/'>
+                    <img src='Horizontal logo.png' alt='logo'/>
+                </Link>
             </section>
             <section className='nav'>
                 <Nav />

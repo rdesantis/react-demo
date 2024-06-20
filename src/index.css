@@ -80,7 +80,7 @@ ul {
 }
 
 .nav-item {
-  font: var(--lead-text);
+  font: var(--highlight-text);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
