@@ -13,8 +13,8 @@ const socials = [
     { icon: faInstagram, url: "https://instagram.com" },
     { icon: faLinkedin, url: "https://www.linkedin.com" },
 ];
-  
-function Footer() {
+
+const Footer = () => {
     return (
         <footer>
             <section className='logo'>

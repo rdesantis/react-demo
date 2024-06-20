@@ -1,4 +1,4 @@
-function Nav() {
+const Nav = () => {
     return (
         <nav>
             <ul>

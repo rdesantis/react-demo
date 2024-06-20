@@ -14,6 +14,8 @@
   --secondary-light-salmon: #FBDABB;
   --highlight-gray: #EDEFEE;
   --highlight-charcoal: #333333;
+
+  --border-radius: 16px;
 }
 
 body {
@@ -28,6 +30,8 @@ body {
 
   font: var(--paragraph-text);
 }
+
+/* Common styles */
 
 h1 {
   font: var(--display-title);
@@ -63,6 +67,11 @@ p {
   font: var(--paragraph-text);
   margin: 5px;
 }
+
+/* This is too broad because it also puts a radius on icons */
+/* img {
+  border-radius: 10px;
+} */
 
 ul {
   list-style: none;
@@ -105,14 +114,10 @@ header .nav {
   display: none;
 }
 
-/*TEMPORARY!*/
 main {
-  display: grid;
-  align-items: center;
-  text-align: center;
-  height: 250px;
-  color: var(--primary-yellow);
-  background-color: var(--primary-green);
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 footer {
@@ -152,7 +157,7 @@ footer .socials li {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  
+
   header .nav, footer .nav  {
     display: block;
   }
@@ -162,4 +167,53 @@ footer .socials li {
     place-items: center;
   }
 
+}
+
+/* Component styles */
+
+.major-section {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 750px) {
+  .major-section {
+    border-radius: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+.hero {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  color: var(--primary-yellow);
+  background-color: var(--primary-green);
+}
+
+.highlights {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  background-color: var(--highlight-gray);
+}
+
+.testimonials {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  color: var(--primary-green);
+  background-color: var(--secondary-salmon);
+}
+
+.about {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  color: black;
+  background-color: var(--secondary-light-salmon);
 }

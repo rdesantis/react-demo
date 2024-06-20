@@ -1,6 +1,6 @@
 import Nav from './Nav';
 
-function Header() {
+const Header = () => {
     return (
         <header>
             <section className='hamburger'>

@@ -1,7 +1,9 @@
-function Main() {
+import Home from "./home-page/Home";
+
+const Main = () => {
     return (
         <main>
-            <h1>Homepage</h1>
+            <Home />
         </main>
     );
 };
