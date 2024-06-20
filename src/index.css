@@ -114,17 +114,19 @@ header .nav {
   display: none;
 }
 
-main {
-  width: 1000px;
-  max-width: 100%;
-  margin: 0 auto;
-}
+/* main {
+  Do we need anything here?
+} */
 
 footer {
   display: flex;
   justify-content: center;
   gap: 5%;
   background-color: var(--highlight-gray);
+
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 footer .logo, footer .nav {
@@ -162,16 +164,23 @@ footer .socials li {
     display: block;
   }
 
+  footer {
+    border-radius: 20px;
+  }
+
   footer .logo {
     display: grid;
     place-items: center;
   }
-
 }
 
 /* Component styles */
 
 .major-section {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+
   border-radius: 0;
   margin-bottom: 0;
 }
