@@ -29,9 +29,38 @@ body {
   font: var(--paragraph-text);
 }
 
+h1 {
+  font: var(--display-title);
+  margin: 5px;
+}
+
+h2 {
+  font: var(--subtitle);
+  margin: 5px;
+}
+
+h3 {
+  font: var(--lead-text);
+  margin: 5px;
+}
+
+h4 {
+  font: var(--section-title);
+  margin: 5px;
+}
+
 h5 {
   font: var(--categories);
-  color: var(--highlight-charcoal);
+  margin: 5px;
+}
+
+h6 {
+  font: var(--card-title);
+  margin: 5px;
+}
+
+p {
+  font: var(--paragraph-text);
   margin: 5px;
 }
 
@@ -80,9 +109,10 @@ header .nav {
 main {
   display: grid;
   align-items: center;
-  font: var(--display-title);
   text-align: center;
   height: 250px;
+  color: var(--primary-yellow);
+  background-color: var(--primary-green);
 }
 
 footer {
