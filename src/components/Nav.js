@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
     return (
         <nav>
-            <ul>
-                <li><a href='home'>Home</a></li>
-                <li><a href='about'>About</a></li>
-                <li><a href='menu'>Menu</a></li>
-                <li><a href='reservations'>Reservations</a></li>
-                <li><a href='order_online'>Order Online</a></li>
-                <li><a href='login'>Login</a></li>
-            </ul>
+            <Link to='/' className='nav-item'>Home</Link>
+            <Link to='/about' className='nav-item'>About</Link>
+            <Link to='/menu' className='nav-item'>Menu</Link>
+            <Link to='/reservations' className='nav-item'>Reservations</Link>
+            <Link to='/order-online' className='nav-item'>Order Online</Link>
+            <Link to='/login' className='nav-item'>Login</Link>
         </nav>
     );
 };
