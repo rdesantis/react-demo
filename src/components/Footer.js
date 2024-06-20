@@ -24,7 +24,7 @@ const Footer = () => {
                 </Link>
             </section>
             <section className='nav'>
-                <h5>Navigation</h5>
+                <h5>Website</h5>
                 <Nav />
             </section>
             <section className='contact'>

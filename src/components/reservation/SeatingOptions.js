@@ -1,8 +1,8 @@
 import MajorSection from "../MajorSection";
 
-const SeatingOptions = () => {
+const SeatingOptions = (props) => {
     return (
-        <MajorSection sectionStyle='seating'>
+        <MajorSection id='seating' sectionStyle={props.sectionStyle}>
             seating options
         </MajorSection>
     );

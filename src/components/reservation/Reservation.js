@@ -5,9 +5,9 @@ import SeatingOptions from "./SeatingOptions";
 const Reservation = () => {
     return (
         <>
-            <ReservationHero />
-            <ReservationBasics />
-            <SeatingOptions />
+            <ReservationHero sectionStyle='hero' />
+            <ReservationBasics sectionStyle='second' />
+            <SeatingOptions sectionStyle='third' />
         </>
     );
 }

@@ -1,6 +1,6 @@
 const MajorSection = (props) => {
     return (
-        <section className={`${props.sectionStyle} major-section`}>
+        <section id={props.id} className={`${props.sectionStyle} major-section`}>
             {props.children}
         </section>
     );

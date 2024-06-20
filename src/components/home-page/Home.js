@@ -6,10 +6,10 @@ import Testimonials from "./Testimonials";
 const Home = () => {
     return (
         <>
-            <HomeHero />
-            <Highlights />
-            <Testimonials />
-            <About />
+            <HomeHero sectionStyle='hero' />
+            <Highlights sectionStyle='second' />
+            <Testimonials sectionStyle='third' />
+            <About sectionStyle='fourth' />
         </>
     );
 }

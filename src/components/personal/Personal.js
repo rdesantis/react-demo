@@ -5,9 +5,9 @@ import PersonalAction from "./Action";
 const Personal = () => {
     return (
         <>
-            <PersonalHero />
-            <PersonalDetails />
-            <PersonalAction />
+            <PersonalHero sectionStyle='hero' />
+            <PersonalDetails sectionStyle='second' />
+            <PersonalAction sectionStyle='third' />
         </>
     );
 }

@@ -1,8 +1,8 @@
 import MajorSection from "../MajorSection";
 
-const ReservationBasics = () => {
+const ReservationBasics = (props) => {
     return (
-        <MajorSection sectionStyle='reservation'>
+        <MajorSection id='reservation' sectionStyle={props.sectionStyle}>
             reservation basics
         </MajorSection>
     );

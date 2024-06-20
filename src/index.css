@@ -1,11 +1,11 @@
 :root {
-  --display-title: 400 64px "Markazi Text", serif;
-  --subtitle: 400 40px "Markazi Text", serif;
+  --display-title: 400 40px "Markazi Text", serif;
+  --subtitle: 400 30px "Markazi Text", serif;
   --lead-text: 500 18px "Karla", sans-serif;
   --section-title: 800 20px "Karla", sans-serif;
   --categories: 800 16px "Karla", sans-serif;
   --card-title: 700 18px "Karla", sans-serif;
-  --paragraph-text: 400 16px "Karla", sans-serif;
+  --paragraph-text: 400 12px "Karla", sans-serif;
   --highlight-text: 500 16px "Karla", sans-serif;
 
   --primary-green: #495E57;
@@ -157,7 +157,7 @@ footer .socials li {
     display: none;
   }
 
-  header .nav, footer .nav  {
+  header .nav, footer .nav, footer .nav-item {
     display: block;
   }
 
@@ -174,12 +174,9 @@ footer .socials li {
     place-items: center;
   }
 
-  footer .nav-item {
-    display: block;
-  }
 }
 
-/* Component styles */
+/* General component styles */
 
 .major-section {
   width: 1000px;
@@ -200,13 +197,16 @@ footer .socials li {
 .hero {
   display: grid;
   align-items: center;
-  text-align: center;
-  height: 100px;
-  color: var(--primary-yellow);
+  /* text-align: center; */
+  color: var(--highlight-gray);
   background-color: var(--primary-green);
 }
 
-.highlights, .reservation {
+.hero h1 {
+  color: var(--primary-yellow);
+}
+
+.second {
   display: grid;
   align-items: center;
   text-align: center;
@@ -214,7 +214,7 @@ footer .socials li {
   background-color: var(--highlight-gray);
 }
 
-.testimonials, .seating {
+.third {
   display: grid;
   align-items: center;
   text-align: center;
@@ -223,11 +223,46 @@ footer .socials li {
   background-color: var(--secondary-salmon);
 }
 
-.about {
+.fourth {
   display: grid;
   align-items: center;
   text-align: center;
   height: 100px;
   color: black;
   background-color: var(--secondary-light-salmon);
+}
+
+/* Specific component styles */
+
+#home-hero {
+  display: grid;
+  height: 400px;
+  grid-template-areas: "home-hero-text" "home-hero-image";
+}
+
+#home-hero-text {
+  grid-area: home-hero-text;
+}
+
+#home-hero-image {
+  grid-area: home-hero-image;
+  padding-top: 20px;
+  display: grid;
+  justify-items: center;
+  overflow-y: visible;
+}
+
+#home-hero-image img {
+  height: 220px;
+  width: 180px;
+  border-radius: 10px;
+}
+
+@media (min-width: 750px) {
+  #home-hero {
+    display: grid;
+    height: 200px;
+    grid-template-areas: ". home-hero-text . home-hero-image .";
+    grid-template-columns: 15% 1fr 10% 1fr 15%;
+  }
 }
