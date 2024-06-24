@@ -345,6 +345,11 @@ footer .socials li {
   grid-area: highlight-order;
 }
 
+.highlight-order img {
+  height: 20px;
+  padding-left: 10px;
+}
+
 @media (min-width: 750px) {
   #highlight-cards {
     display: flex;

@@ -7,9 +7,10 @@ const HighlightCard = (props) => {
                 <h2 className='highlight-name'>{card.name}</h2>
                 <p className='highlight-price'>{card.price}</p>
                 <p className='highlight-description'>{card.description}</p>
-                <p className='highlight-order'>
+                <h6 className='highlight-order'>
                     Order a delivery
-                </p>
+                    <img src='bike.png' alt='bike' />
+                </h6>
             </div>
         </div>
     );
