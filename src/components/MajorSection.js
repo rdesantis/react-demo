@@ -1,7 +1,9 @@
 const MajorSection = (props) => {
     return (
-        <section id={props.id} className={`${props.sectionStyle} major-section`}>
-            {props.children}
+        <section className={`${props.sectionStyle} major-section`}>
+            <div id={props.id} className='major-section-content'>
+                {props.children}
+            </div>
         </section>
     );
 }
