@@ -166,7 +166,7 @@ footer .socials li {
   }
 
   footer {
-    border-radius: 20px;
+    border-radius: var(--border-radius);
   }
 
   footer .logo {
@@ -234,6 +234,8 @@ footer .socials li {
 
 /* Specific component styles */
 
+/* Home page styles */
+
 #home-hero {
   display: grid;
   height: 400px;
@@ -244,25 +246,36 @@ footer .socials li {
   grid-area: home-hero-text;
 }
 
+#home-hero-text h1 {
+  margin-bottom: 0;
+}
+
+#home-hero-text h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 #home-hero-image {
   grid-area: home-hero-image;
-  padding-top: 20px;
   display: grid;
   justify-items: center;
-  overflow-y: visible;
 }
 
 #home-hero-image img {
   height: 220px;
   width: 180px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 @media (min-width: 750px) {
   #home-hero {
     display: grid;
-    height: 200px;
+    height: 220px;
     grid-template-areas: ". home-hero-text . home-hero-image .";
     grid-template-columns: 15% 1fr 10% 1fr 15%;
+  }
+  
+  #home-hero-image img {
+    transform: translateY(30px);
   }
 }
