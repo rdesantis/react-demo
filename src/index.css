@@ -290,7 +290,6 @@ footer .socials li {
 #highlights h1 {
   text-align: left;
   margin-top: 40px;
-  margin-bottom: 20px;
 }
 
 #highlight-cards {
@@ -300,6 +299,7 @@ footer .socials li {
 
 .highlight-card {
   width: 240px;
+  margin-bottom: 10px;
   display: grid;
   grid-template-areas: "highlight-image" "highlight-text"
 }
@@ -323,6 +323,7 @@ footer .socials li {
     "highlight-order highlight-order";
   text-align: left;
   background-color: var(--highlight-gray);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .highlight-name {
@@ -361,5 +362,84 @@ footer .socials li {
     justify-content: space-between;
     margin: auto;
     margin-bottom: 20px;
+  }
+
+  .highlight-card {
+    margin-bottom: 0;
+  }
+}
+
+#testimonials {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#testimonials h1 {
+  padding-bottom: 20px;
+}
+
+#testimonial-cards {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.testimonial-card {
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  background-color: var(--highlight-gray);
+  border-radius: var(--border-radius);
+
+  display: grid;
+  grid-template-areas:
+    "testimonial-rating testimonial-rating"
+    "testimonial-image testimonial-name"
+    "testimonial-review testimonial-review";
+  grid-template-columns: 80px 120px;
+  grid-template-rows: 10px 90px 40px;
+}
+
+.testimonial-card .stars {
+  grid-area: testimonial-rating;
+  /* display: inline-block; */
+  vertical-align: bottom;
+  margin-bottom: 10px;
+}
+
+.testimonial-image {
+  grid-area: testimonial-image;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.testimonial-image img {
+  width: 60px;
+  border-radius: var(--border-radius);
+}
+
+.testimonial-name {
+  grid-area: testimonial-name;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-review {
+  grid-area: testimonial-review;
+  text-align: left;
+  padding: 5px;
+}
+
+@media (min-width: 750px) {
+  #testimonial-cards {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card {
+    margin-bottom: 0;
   }
 }
