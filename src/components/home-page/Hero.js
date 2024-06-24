@@ -12,7 +12,7 @@ const HomeHero = (props) => {
                 </p>
             </section>
             <section id='home-hero-image'>
-                <img src='Grilled Fish.png' alt='grilled fish'/>
+                <img src='food/Grilled Fish.png' alt='grilled fish'/>
             </section>
         </MajorSection>
     );

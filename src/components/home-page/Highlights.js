@@ -4,7 +4,7 @@ import HighlightCard from "./HighlightCard";
 const cards = [
     {
         name: 'Greek salad',
-        image: 'Greek Salad.png',
+        image: 'food/Greek Salad.png',
         price: '$12.99',
         description:
             `The famous greek salad of crispy lettuce, peppers, olives
@@ -13,7 +13,7 @@ const cards = [
     },
     {
         name: 'Bruschetta',
-        image: 'Bruschetta.png',
+        image: 'food/Bruschetta.png',
         price: '$ 5.99',
         description:
             `Our Bruschetta is made from grilled bread that has been
@@ -21,7 +21,7 @@ const cards = [
     },
     {
         name: 'Lemon Dessert',
-        image: 'Lemon Dessert.png',
+        image: 'food/Lemon Dessert.png',
         price: '$ 5.00',
         description:
             `This comes straight from grandma’s recipe book,
