@@ -210,15 +210,13 @@ footer .socials li {
   display: grid;
   align-items: center;
   text-align: center;
-  height: 100px;
-  background-color: var(--highlight-gray);
+  background-color: white;
 }
 
 .third {
   display: grid;
   align-items: center;
   text-align: center;
-  height: 100px;
   color: var(--primary-green);
   background-color: var(--secondary-salmon);
 }
@@ -227,7 +225,6 @@ footer .socials li {
   display: grid;
   align-items: center;
   text-align: center;
-  height: 100px;
   color: black;
   background-color: var(--secondary-light-salmon);
 }
@@ -274,8 +271,66 @@ footer .socials li {
     grid-template-areas: ". home-hero-text . home-hero-image .";
     grid-template-columns: 15% 1fr 10% 1fr 15%;
   }
-  
+
   #home-hero-image img {
     transform: translateY(30px);
   }
+}
+
+#highlights h1 {
+  text-align: left;
+}
+
+#highlight-cards {
+  display: flex;
+  gap: 30px;
+  margin: auto;
+}
+
+.highlight-card {
+  width: 200px;
+  display: grid;
+  grid-template-areas: "highlight-image" "highlight-text"
+}
+
+.highlight-image {
+  grid-area: highlight-image;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.highlight-text {
+  grid-area: highlight-text;
+  display: grid;
+  grid-template-areas:
+    "highlight-name highlight-price"
+    "highlight-description highlight-description"
+    "highlight-order highlight-order";
+  text-align: left;
+  background-color: var(--highlight-gray);
+}
+
+.highlight-name {
+  grid-area: highlight-name;
+  font-size: 14px;
+  font-weight: bolder;;
+}
+
+.highlight-price {
+  grid-area: highlight-price;
+  text-align: right;
+  color: var(--secondary-salmon);
+}
+
+.highlight-description {
+  grid-area: highlight-description;
+  font: var(--highlight-text);
+  color: var(--primary-green);
+  font-size: 12px;
+}
+
+.highlight-order {
+  grid-area: highlight-order;
 }
