@@ -20,7 +20,7 @@ const Footer = () => {
         <footer>
             <section className='logo'>
                 <Link to='/'>
-                    <img src='Vertical logo.png' alt='logo' height='100'/>
+                    <img src='Vertical logo.png' alt='logo' height='100' className='icon'/>
                 </Link>
             </section>
             <section className='nav'>

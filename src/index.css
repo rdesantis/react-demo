@@ -77,6 +77,10 @@ ul {
   margin: 5px;
 }
 
+img:not(.icon) {
+  border-radius: var(--border-radius);
+}
+
 .nav-item {
   font: var(--highlight-text);
   padding-left: 0.5rem;
@@ -205,6 +209,16 @@ footer .socials li {
   color: var(--primary-yellow);
 }
 
+.hero-header h1 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.hero-header h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 .second {
   display: grid;
   align-items: center;
@@ -255,16 +269,6 @@ footer .socials li {
   grid-area: home-hero-text;
 }
 
-#home-hero-text h1 {
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-#home-hero-text h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
 #home-hero-image {
   grid-area: home-hero-image;
   display: grid;
@@ -274,7 +278,6 @@ footer .socials li {
 #home-hero-image img {
   height: 320px;
   width: 280px;
-  border-radius: var(--border-radius);
 }
 
 @media (min-width: 1000px) {
@@ -314,6 +317,9 @@ footer .socials li {
 
 .highlight-image {
   grid-area: highlight-image;
+}
+
+img.highlight-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
@@ -430,7 +436,6 @@ footer .socials li {
 
 .testimonial-image img {
   width: 60px;
-  border-radius: var(--border-radius);
 }
 
 .testimonial-name {
@@ -492,7 +497,6 @@ footer .socials li {
 .home-about-image img {
   height: 220px;
   width: 180px;
-  border-radius: var(--border-radius);
 }
 
 #home-about-image-top {
@@ -515,5 +519,28 @@ footer .socials li {
     grid-template-areas: "home-about-text . home-about-images";
     grid-template-columns: 1fr 10% 1fr;
   }
+}
 
+/****************************************
+* Reservation page: Hero
+*/
+
+#reservation-hero {
+  display: grid;
+  grid-template-areas: "reservation-hero-text" "reservation-hero-images";
+}
+
+#reservation-hero-text {
+  grid-area: reservation-hero-text;
+}
+
+#reservation-hero-images {
+  grid-area: reservation-hero-images;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#reservation-hero-images img {
+  width: 45%;
 }

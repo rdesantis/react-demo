@@ -5,11 +5,11 @@ const Header = () => {
     return (
         <header>
             <section className='hamburger'>
-                <img src='Hamburger menu.svg' alt='hamburger' />
+                <img src='Hamburger menu.svg' alt='hamburger' className='icon'/>
             </section>
             <section className='logo'>
                 <Link to='/'>
-                    <img src='Horizontal logo.png' alt='logo'/>
+                    <img src='Horizontal logo.png' alt='logo' className='icon'/>
                 </Link>
             </section>
             <section className='nav'>

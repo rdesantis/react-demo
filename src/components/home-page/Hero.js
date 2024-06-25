@@ -1,11 +1,11 @@
+import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 
 const HomeHero = (props) => {
     return (
         <MajorSection id='home-hero' sectionStyle={props.sectionStyle}>
             <section id='home-hero-text'>
-                <h1>Little Lemon</h1>
-                <h2>Chicago</h2>
+                <HeroHeader />
                 <p>
                     We are a family owned Mediterranean restaurant,
                     focused on traditional recipes served with a modern twist.
