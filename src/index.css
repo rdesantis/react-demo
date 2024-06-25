@@ -72,11 +72,6 @@ p {
   margin: 5px;
 }
 
-/* This is too broad because it also puts a radius on icons */
-/* img {
-  border-radius: 10px;
-} */
-
 ul {
   list-style: none;
   padding: 0;
@@ -236,6 +231,10 @@ footer .socials li {
   background-color: var(--secondary-light-salmon);
 }
 
+.fourth h1 {
+  color: var(--primary-green);
+}
+
 /* Specific component styles */
 
 /****************************************
@@ -374,6 +373,10 @@ footer .socials li {
   }
 }
 
+/****************************************
+* Home page: Testimonials
+*/
+
 #testimonials {
   text-align: center;
   padding-top: 40px;
@@ -457,8 +460,8 @@ footer .socials li {
 
 #home-about {
   display: grid;
-  /* height: 400px; */
   grid-template-areas: "home-about-text" "home-about-images";
+  margin-bottom: 20px;
 }
 
 #home-about-text {
