@@ -18,6 +18,8 @@
   --light-green: #DBDFDD;
 
   --border-radius: 16px;
+
+  --major-section-width: 1320px;
 }
 
 body {
@@ -128,7 +130,7 @@ footer {
   gap: 5%;
   background-color: var(--highlight-gray);
 
-  width: 1000px;
+  width: var(--major-section-width);
   max-width: 100%;
   margin: 0 auto;
   padding-bottom: 10px;
@@ -181,7 +183,7 @@ footer .socials li {
 /* General component styles */
 
 .major-section {
-  max-width: 1320px;
+  max-width: var(--major-section-width);
   margin: 0 auto;
 
   border-radius: 0;
