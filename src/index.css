@@ -1,11 +1,11 @@
 :root {
-  --display-title: 400 40px "Markazi Text", serif;
-  --subtitle: 400 30px "Markazi Text", serif;
+  --display-title: 550 40px "Markazi Text", serif;
+  --subtitle: 400 28px "Markazi Text", serif;
   --lead-text: 500 18px "Karla", sans-serif;
   --section-title: 800 20px "Karla", sans-serif;
   --categories: 800 16px "Karla", sans-serif;
   --card-title: 700 18px "Karla", sans-serif;
-  --paragraph-text: 400 12px "Karla", sans-serif;
+  --paragraph-text: 400 14px "Karla", sans-serif;
   --highlight-text: 500 16px "Karla", sans-serif;
 
   --primary-green: #495E57;
@@ -203,7 +203,6 @@ footer .socials li {
 .hero {
   display: grid;
   align-items: center;
-  /* text-align: center; */
   color: var(--highlight-gray);
   background-color: var(--primary-green);
 }
@@ -215,7 +214,6 @@ footer .socials li {
 .second {
   display: grid;
   align-items: center;
-  text-align: center;
   background-color: white;
   border-style: solid;
   border-width: 1px;
@@ -225,7 +223,6 @@ footer .socials li {
 .third {
   display: grid;
   align-items: center;
-  text-align: center;
   color: var(--primary-green);
   background-color: var(--secondary-salmon);
 }
@@ -233,14 +230,15 @@ footer .socials li {
 .fourth {
   display: grid;
   align-items: center;
-  text-align: center;
   color: black;
   background-color: var(--secondary-light-salmon);
 }
 
 /* Specific component styles */
 
-/* Home page styles */
+/****************************************
+* Home page: Hero
+*/
 
 #home-hero {
   display: grid;
@@ -286,6 +284,10 @@ footer .socials li {
     transform: translateY(30px);
   }
 }
+
+/****************************************
+* Home page: Highlights
+*/
 
 #highlights h1 {
   text-align: left;
@@ -371,6 +373,7 @@ footer .socials li {
 }
 
 #testimonials {
+  text-align: center;
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -444,4 +447,64 @@ footer .socials li {
   .testimonial-card {
     margin-bottom: 0;
   }
+}
+
+/****************************************
+* Home page: About
+*/
+
+#home-about {
+  display: grid;
+  /* height: 400px; */
+  grid-template-areas: "home-about-text" "home-about-images";
+}
+
+#home-about-text {
+  grid-area: home-about-text;
+}
+
+#home-about-text h1 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+#home-about-text h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#home-about-images {
+  grid-area: home-about-images;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  position: relative;
+}
+
+.home-about-image img {
+  height: 220px;
+  width: 180px;
+  border-radius: var(--border-radius);
+}
+
+#home-about-image-top {
+  grid-column: 3 / -1;
+  grid-row: 1;
+  padding-top: 10%;
+  z-index: 1;
+}
+
+#home-about-image-bottom {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  padding-top: 25%;
+}
+
+@media (min-width: 750px) {
+  #home-about {
+    display: grid;
+    /* height: 220px; */
+    grid-template-areas: "home-about-text . home-about-images";
+    grid-template-columns: 1fr 10% 1fr;
+  }
+
 }
