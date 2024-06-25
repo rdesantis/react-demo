@@ -25,9 +25,9 @@
 body {
   /* Start of properties set by create-react-app */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* End of properties set by create-react-app */
@@ -40,11 +40,13 @@ body {
 h1 {
   font: var(--display-title);
   margin: 5px 5px 0;
+  line-height: 1;
 }
 
 h2 {
   font: var(--subtitle);
   margin: 0 5px 5px;
+  line-height: 1;
 }
 
 h3 {
@@ -193,13 +195,13 @@ footer .socials li {
 }
 
 .major-section-content {
-  width: 65%;
+  width: 80%;
   margin: auto;
 }
 
 .hero {
-  display: grid;
-  align-items: center;
+  /* display: grid;
+  align-items: center; */
   color: var(--highlight-gray);
   background-color: var(--primary-green);
 }
@@ -235,6 +237,13 @@ footer .socials li {
   color: var(--primary-green);
 }
 
+@media (min-width: 1000px) {
+  .major-section-content {
+    width: 65%;
+    margin: auto;
+  }
+}
+
 /* Specific component styles */
 
 /****************************************
@@ -243,7 +252,7 @@ footer .socials li {
 
 #home-hero {
   display: grid;
-  height: 400px;
+  height: 600px;
   grid-template-areas: "home-hero-text" "home-hero-image";
 }
 
@@ -268,15 +277,15 @@ footer .socials li {
 }
 
 #home-hero-image img {
-  height: 220px;
-  width: 180px;
+  height: 320px;
+  width: 280px;
   border-radius: var(--border-radius);
 }
 
 @media (min-width: 1000px) {
   #home-hero {
     display: grid;
-    height: 220px;
+    height: 300px;
     grid-template-areas: "home-hero-text . home-hero-image";
     grid-template-columns: 1fr 10% 1fr;
   }
@@ -407,7 +416,7 @@ footer .socials li {
     "testimonial-image testimonial-name"
     "testimonial-review testimonial-review";
   grid-template-columns: 80px 120px;
-  grid-template-rows: 10px 90px 40px;
+  grid-template-rows: 10px 90px 60px;
 }
 
 .testimonial-card .stars {
