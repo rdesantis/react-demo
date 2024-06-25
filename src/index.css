@@ -25,9 +25,6 @@
 body {
   /* Start of properties set by create-react-app */
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* End of properties set by create-react-app */
@@ -200,8 +197,6 @@ footer .socials li {
 }
 
 .hero {
-  /* display: grid;
-  align-items: center; */
   color: var(--highlight-gray);
   background-color: var(--primary-green);
 }
