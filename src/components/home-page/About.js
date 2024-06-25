@@ -20,10 +20,10 @@ const About = (props) => {
                 </p> */}
             </article>
             <section id='home-about-images'>
-                <div class='home-about-image' id='home-about-image-top'>
+                <div className='home-about-image' id='home-about-image-top'>
                     <img src='people/Mario and Adrian.jpg' alt='Mario and Adrian'/>
                 </div>
-                <div class='home-about-image' id='home-about-image-bottom'>
+                <div className='home-about-image' id='home-about-image-bottom'>
                     <img src='restaurant.jpg' alt='restaurant'/>
                 </div>
             </section>
