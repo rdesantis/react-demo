@@ -526,8 +526,10 @@ img.highlight-image {
 */
 
 #reservation-hero {
+  padding-bottom: 20px;
+
   display: grid;
-  grid-template-areas: "reservation-hero-text" "reservation-hero-images";
+  grid-template-areas: "reservation-hero-text" "reservation-hero-images" "reservation-hero-form";
 }
 
 #reservation-hero-text {
@@ -543,4 +545,32 @@ img.highlight-image {
 
 #reservation-hero-images img {
   width: 45%;
+}
+
+#reservation-hero-form {
+  grid-area: reservation-hero-form;
+}
+
+#reservation-hero form {
+  display: grid;
+  max-width: 400px;
+  gap: 20px;
+}
+
+@media (min-width: 750px) {
+  #reservation-hero {
+    grid-template-areas:
+      "reservation-hero-text reservation-hero-text reservation-hero-text"
+      "reservation-hero-images . reservation-hero-form";
+    grid-template-columns: 10fr 1fr 10fr;
+  }
+
+  #reservation-hero-images {
+    display: grid;
+    gap: 20px;
+  }
+
+  #reservation-hero-images img {
+    width: 100%;
+  }
 }

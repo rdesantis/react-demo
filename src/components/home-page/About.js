@@ -24,7 +24,7 @@ const About = (props) => {
                     <img src='people/Mario and Adrian.jpg' alt='Mario and Adrian'/>
                 </div>
                 <div className='home-about-image' id='home-about-image-bottom'>
-                    <img src='restaurant.jpg' alt='restaurant'/>
+                    <img src='restaurant deck.jpg' alt='restaurant'/>
                 </div>
             </section>
         </MajorSection>
