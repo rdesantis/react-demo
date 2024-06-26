@@ -16,6 +16,7 @@ const ReservationForm = () => {
             <input type="number" placeholder="1" min="1" max="10" id="guests" />
             <label htmlFor="occasion">Occasion</label>
             <select id="occasion">
+                <option></option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
