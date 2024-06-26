@@ -3,7 +3,7 @@ import HomeHero from "./Hero";
 import Highlights from "./Highlights";
 import Testimonials from "./Testimonials";
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <HomeHero sectionStyle='hero' />
@@ -14,4 +14,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default HomePage;

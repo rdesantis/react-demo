@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ReservationForm = () => {
+const BookingForm = () => {
     const [state, setState] = useState({
         resDate: new Date().toISOString().substring(0, 10),
         resTime: '17:00',
@@ -44,4 +44,4 @@ const ReservationForm = () => {
     );
 }
 
-export default ReservationForm;
+export default BookingForm;

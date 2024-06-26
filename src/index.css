@@ -583,61 +583,61 @@ img.highlight-image {
 }
 
 /****************************************
-* Reservation page: Hero
+* Booking page: Hero
 */
 
-#reservation-hero {
+#booking-hero {
   padding-bottom: 20px;
 
   display: grid;
-  grid-template-areas: "reservation-hero-text" "reservation-hero-images" "reservation-hero-form";
+  grid-template-areas: "booking-hero-text" "booking-hero-images" "booking-hero-form";
 }
 
-#reservation-hero-text {
-  grid-area: reservation-hero-text;
+#booking-hero-text {
+  grid-area: booking-hero-text;
 }
 
-#reservation-hero-images {
-  grid-area: reservation-hero-images;
+#booking-hero-images {
+  grid-area: booking-hero-images;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-#reservation-hero-images img {
+#booking-hero-images img {
   width: 45%;
 }
 
-#reservation-hero-form {
-  grid-area: reservation-hero-form;
+#booking-hero-form {
+  grid-area: booking-hero-form;
 }
 
-#reservation-hero-form form {
+#booking-hero-form form {
   display: grid;
   max-width: 400px;
   gap: 10px;
 }
 
-#reservation-hero-form label {
+#booking-hero-form label {
   margin-top: 10px;
   font: var(--lead-text);
   gap: 10px;
 }
 
 @media (min-width: 750px) {
-  #reservation-hero {
+  #booking-hero {
     grid-template-areas:
-      "reservation-hero-text reservation-hero-text reservation-hero-text"
-      "reservation-hero-images . reservation-hero-form";
+      "booking-hero-text booking-hero-text booking-hero-text"
+      "booking-hero-images . booking-hero-form";
     grid-template-columns: 10fr 1fr 10fr;
   }
 
-  #reservation-hero-images {
+  #booking-hero-images {
     display: grid;
     gap: 20px;
   }
 
-  #reservation-hero-images img {
+  #booking-hero-images img {
     width: 100%;
   }
 }
