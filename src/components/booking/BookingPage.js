@@ -5,9 +5,35 @@ import MajorSection from "../MajorSection";
 import BookingForm from "./BookingForm";
 
 const BookingPage = () => {
-    const bookingState = useState({
-        resDate: new Date().toISOString().substring(0, 10),
-        resTime: '17:00',
+    let today = new Date();
+    let tomorrow = new Date(); tomorrow.setDate(today.getDate() + 1);
+    let dayafter = new Date(); dayafter.setDate(tomorrow.getDate() + 1);
+
+    // The following may be slow when called for many objects; see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+    const dateImage = (d) => d.toLocaleDateString();
+
+    today = dateImage(today);
+    tomorrow = dateImage(tomorrow);
+    dayafter = dateImage(dayafter);
+
+    const availableTimes = useState([
+        {
+            resDate: today,
+            resTimes: ['20:00', '21:00', '22:00', ]
+        },
+        {
+            resDate: tomorrow,
+            resTimes: ['18:00', '19:00', '21:00', '22:00', ]
+        },
+        {
+            resDate: dayafter,
+            resTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ]
+        },
+    ]);
+
+    const booking = useState({
+        dateIndex: 0,
+        timeIndex: 0,
         guests: 2,
         occasion: '',
     });
@@ -23,7 +49,7 @@ const BookingPage = () => {
                 <img src='restaurant deck.jpg' alt='deck seating' />
             </section>
             <section id='booking-hero-form'>
-                <BookingForm state={bookingState} />
+                <BookingForm availableTimes={availableTimes} booking={booking} />
             </section>
         </MajorSection>
     );
