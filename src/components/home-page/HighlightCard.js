@@ -4,7 +4,7 @@ const HighlightCard = (props) => {
         <div className='highlight-card'>
             <img className='highlight-image' src={card.image} alt={card.name} />
             <div className='highlight-text'>
-                <h2 className='highlight-name'>{card.name}</h2>
+                <h3 className='highlight-name'>{card.name}</h3>
                 <p className='highlight-price'>{card.price}</p>
                 <p className='highlight-description'>{card.description}</p>
                 <h6 className='highlight-order'>
