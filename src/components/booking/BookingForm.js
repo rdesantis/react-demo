@@ -1,12 +1,5 @@
-import { useState } from "react";
-
-const BookingForm = () => {
-    const [state, setState] = useState({
-        resDate: new Date().toISOString().substring(0, 10),
-        resTime: '17:00',
-        guests: 2,
-        occasion: '',
-    });
+const BookingForm = (props) => {
+    const [state, setState] = props.state;
 
     const handleChange = (key) => {
         return (e) => {setState({...state, [key]: e.target.value})};

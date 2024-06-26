@@ -1,8 +1,17 @@
+import { useState } from "react";
+
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 import BookingForm from "./BookingForm";
 
 const BookingPage = () => {
+    const bookingState = useState({
+        resDate: new Date().toISOString().substring(0, 10),
+        resTime: '17:00',
+        guests: 2,
+        occasion: '',
+    });
+
     return (
         <MajorSection id='booking-hero' sectionStyle='hero'>
             <section id='booking-hero-text'>
@@ -14,7 +23,7 @@ const BookingPage = () => {
                 <img src='restaurant deck.jpg' alt='deck seating' />
             </section>
             <section id='booking-hero-form'>
-                <BookingForm />
+                <BookingForm state={bookingState} />
             </section>
         </MajorSection>
     );
