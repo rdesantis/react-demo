@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer } from "react";
 
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
@@ -16,7 +16,7 @@ const BookingPage = () => {
     tomorrow = dateImage(tomorrow);
     dayafter = dateImage(dayafter);
 
-    const availableTimes = useState([
+    const slots = [
         {
             resDate: today,
             resTimes: ['20:00', '21:00', '22:00', ]
@@ -29,14 +29,26 @@ const BookingPage = () => {
             resDate: dayafter,
             resTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ]
         },
-    ]);
+    ];
 
-    const booking = useState({
+    const reducer = (state, action) => {
+        let newState = {...state, [action.key]: action.value};
+        if (action.key === 'dateIndex') {
+            newState.availableTimes = slots[action.value].resTimes
+        }
+        return newState;
+    }
+
+    const initialState = {
         dateIndex: 0,
         timeIndex: 0,
         guests: 2,
         occasion: '',
-    });
+
+        availableDates: slots.map(slot => slot.resDate),
+        availableTimes: slots[0].resTimes,
+    };
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <MajorSection id='booking-hero' sectionStyle='hero'>
@@ -49,7 +61,7 @@ const BookingPage = () => {
                 <img src='restaurant deck.jpg' alt='deck seating' />
             </section>
             <section id='booking-hero-form'>
-                <BookingForm availableTimes={availableTimes} booking={booking} />
+                <BookingForm reducer={[state, dispatch]} />
             </section>
         </MajorSection>
     );
