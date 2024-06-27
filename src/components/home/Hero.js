@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 
 const HomeHero = (props) => {
+    const navigate = useNavigate();
+    const reservations = () => {navigate('/reservations');}
+
     return (
         <MajorSection id='home-hero' sectionStyle={props.sectionStyle}>
             <section id='home-hero-text'>
@@ -10,7 +15,7 @@ const HomeHero = (props) => {
                     We are a family owned Mediterranean restaurant,
                     focused on traditional recipes served with a modern twist.
                 </p>
-                <button>Reserve a Table</button>
+                <button className='button' onClick={reservations}>Reserve a table</button>
             </section>
             <section id='home-hero-image'>
                 <img src='food/Grilled Fish.png' alt='grilled fish'/>

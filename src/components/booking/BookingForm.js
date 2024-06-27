@@ -35,7 +35,7 @@ const BookingForm = (props) => {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input type="submit" value="Reserve a Table" />
+            <input type="submit" className="button" value="Let's go!" />
         </form>
     );
 }
