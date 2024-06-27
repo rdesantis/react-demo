@@ -78,6 +78,25 @@ input:not([type=submit]), select, option {
   height: 1.5em;
 }
 
+input[type=submit], button {
+  font: var(--lead-text);
+  background-color: var(--primary-yellow);
+  border-radius: var(--border-radius);
+  height: 2em;
+  width: fit-content;
+  padding-left: 40px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover, button:hover {
+  filter: brightness(110%);
+}
+
+input[type=submit]:active, button:active {
+  box-shadow: inset 0px 0px 10px var(--primary-green);
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -268,12 +287,16 @@ footer .socials li {
 
 #home-hero {
   display: grid;
-  height: 600px;
+  height: 640px;
   grid-template-areas: "home-hero-text" "home-hero-image";
 }
 
 #home-hero-text {
   grid-area: home-hero-text;
+}
+
+#home-hero-text button {
+  margin-top: 40px;
 }
 
 #home-hero-image {
@@ -625,6 +648,11 @@ img.highlight-image {
   margin-top: 10px;
   font: var(--lead-text);
   gap: 10px;
+}
+
+#booking-hero-form input[type=submit] {
+  margin: auto;
+  margin-top: 40px;
 }
 
 @media (min-width: 750px) {

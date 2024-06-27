@@ -10,6 +10,7 @@ const HomeHero = (props) => {
                     We are a family owned Mediterranean restaurant,
                     focused on traditional recipes served with a modern twist.
                 </p>
+                <button>Reserve a Table</button>
             </section>
             <section id='home-hero-image'>
                 <img src='food/Grilled Fish.png' alt='grilled fish'/>
