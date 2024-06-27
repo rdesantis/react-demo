@@ -18,6 +18,7 @@
   --light-green: #DBDFDD;
 
   --border-radius: 16px;
+  --input-border-radius: 8px;
 
   --major-section-width: 1320px;
 }
@@ -73,7 +74,7 @@ p {
 
 input:not([type=submit]), select, option {
   font: var(--lead-text);
-  border-radius: var(--border-radius);
+  border-radius: var(--input-border-radius);
   height: 1.5em;
 }
 

@@ -34,7 +34,7 @@ const BookingPage = () => {
     const reducer = (state, action) => {
         let newState = {...state, [action.key]: action.value};
         if (action.key === 'dateIndex') {
-            newState.availableTimes = slots[action.value].resTimes
+            newState.availableTimes = slots[action.value].resTimes;
         }
         return newState;
     }
