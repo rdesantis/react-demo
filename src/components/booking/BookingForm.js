@@ -14,7 +14,7 @@ const BookingForm = (props) => {
     };
 
     const buildOptions = (key) => {
-        return state[key].map((dateOrTime, i) => <option value={i}>{dateOrTime}</option>);
+        return state[key].map((dateOrTime, i) => <option key={i} value={i}>{dateOrTime}</option>);
     }
 
     return (
