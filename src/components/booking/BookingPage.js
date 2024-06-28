@@ -58,6 +58,11 @@ const BookingPage = () => {
     };
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    const handleSubmit = (state) => {
+        // TODO
+        alert(`submitted: ${JSON.stringify(state)}`);
+    };
+
     return (
         <MajorSection id='booking-hero' sectionStyle='hero'>
             <section id='booking-hero-text'>
@@ -69,7 +74,7 @@ const BookingPage = () => {
                 <img src='restaurant deck.jpg' alt='deck seating' />
             </section>
             <section id='booking-hero-form'>
-                <BookingForm reducer={[state, dispatch]} />
+                <BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
             </section>
         </MajorSection>
     );

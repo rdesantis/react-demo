@@ -3,14 +3,15 @@ const BookingForm = (props) => {
 
     const handleChange = (key) => {
         return (e) => {
-            dispatch({key: key, value: e.target.value});
+            const value = (typeof state[key] === 'number') ? Number(e.target.value) : e.target.value;
+            dispatch({key: key, value: value});
         };
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // TODO
-        alert(`submitted: ${JSON.stringify(state)}`);
+        const {availableDates, availableTimes, ...result} = state;
+        props.onSubmit(result);
     };
 
     const buildOptions = (key) => {
