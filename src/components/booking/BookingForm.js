@@ -3,8 +3,7 @@ const BookingForm = (props) => {
 
     const handleChange = (key) => {
         return (e) => {
-            const value = (typeof state[key] === 'number') ? Number(e.target.value) : e.target.value;
-            dispatch({key: key, value: value});
+            dispatch({key: key, value: e.target.value});
         };
     };
 
@@ -15,17 +14,17 @@ const BookingForm = (props) => {
     };
 
     const buildOptions = (key) => {
-        return state[key].map((dateOrTime, i) => <option key={i} value={i}>{dateOrTime}</option>);
+        return state[key].map((dateOrTime) => <option key={dateOrTime}>{dateOrTime}</option>);
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="res-date">Choose date</label>
-            <select id="res-date" value={state.dateIndex} onChange={handleChange('dateIndex')}>
+            <select id="res-date" value={state.resDate} onChange={handleChange('resDate')}>
                 {buildOptions('availableDates')}
             </select>
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" value={state.timeIndex} onChange={handleChange('timeIndex')}>
+            <select id="res-time" value={state.resTime} onChange={handleChange('resTime')}>
                 {buildOptions('availableTimes')}
             </select>
             <label htmlFor="guests">Number of guests</label>

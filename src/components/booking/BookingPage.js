@@ -3,59 +3,38 @@ import { useReducer } from "react";
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 import BookingForm from "./BookingForm";
-
-let today = new Date();
-let tomorrow = new Date(); tomorrow.setDate(today.getDate() + 1);
-let dayafter = new Date(); dayafter.setDate(tomorrow.getDate() + 1);
-
-// The following may be slow when called for many objects; see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-const dateImage = (d) => d.toLocaleDateString();
-
-today = dateImage(today);
-tomorrow = dateImage(tomorrow);
-dayafter = dateImage(dayafter);
-
-const slots = [
-    {
-        resDate: today,
-        resTimes: ['20:00', '21:00', '22:00', ]
-    },
-    {
-        resDate: tomorrow,
-        resTimes: ['18:00', '19:00', '21:00', '22:00', ]
-    },
-    {
-        resDate: dayafter,
-        resTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ]
-    },
-];
+import {initializeAPI, fetchAPI, submitAPI} from "../../APIMock";
 
 export const initializeDates = () => {
-    return slots.map(slot => slot.resDate);
+    return initializeAPI();
 }
 
-export const updateTimes = (dateIndex) => {
-    return slots[dateIndex].resTimes
+export const updateTimes = (resDate) => {
+    return fetchAPI(resDate);
 }
 
 const BookingPage = () => {
     const reducer = (state, action) => {
         let newState = {...state, [action.key]: action.value};
-        if (action.key === 'dateIndex') {
-            newState.availableTimes = slots[action.value].resTimes;
+        if (action.key === 'resDate') {
+            newState.availableTimes = updateTimes(action.value);
         }
         return newState;
     }
 
+    const availableDates = initializeDates();
+    const initialAvailableTimes = updateTimes(availableDates[0]);
+
     const initialState = {
-        dateIndex: 0,
-        timeIndex: 0,
+        resDate: availableDates[0],
+        resTime: initialAvailableTimes[0],
         guests: 2,
         occasion: '',
 
-        availableDates: initializeDates(),
-        availableTimes: updateTimes(0),
+        availableDates: availableDates,
+        availableTimes: initialAvailableTimes,
     };
+
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const handleSubmit = (state) => {
