@@ -160,7 +160,7 @@ footer {
   padding-bottom: 10px;
 }
 
-footer .logo, footer nav {
+footer .logo, footer .nav {
   display: none;
 }
 
@@ -185,7 +185,7 @@ footer .socials li {
     display: none;
   }
 
-  header nav, footer nav, footer .nav-item {
+  header nav, footer .nav, footer .nav-item {
     display: block;
   }
 
