@@ -206,6 +206,28 @@ footer .socials li {
 
 /* General component styles */
 
+.hamburger {
+  position: relative;
+}
+
+.hamburger nav {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+
+.hamburger:hover nav, .hamburger:active nav {
+  display: block;
+  width: fit-content;
+  background-color: var(--highlight-gray);
+}
+
+.hamburger .nav-item {
+  display: block;
+}
+
 .major-section {
   max-width: var(--major-section-width);
   margin: 0 auto;
