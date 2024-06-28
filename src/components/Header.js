@@ -11,9 +11,7 @@ const Header = () => {
                     <img src='Horizontal logo.png' alt='logo' className='icon'/>
                 </Link>
             </div>
-            <div className='nav'>
-                <Nav />
-            </div>
+            <Nav />
             <div className='dummy'></div>
         </header>
     );
