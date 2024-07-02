@@ -97,6 +97,27 @@ input:not([type=submit]), select, option {
   box-shadow: inset 0px 0px 10px var(--primary-green);
 }
 
+label {
+  margin-top: 10px;
+  font: var(--lead-text);
+  gap: 10px;
+}
+
+.radio {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio label {
+  margin-top: 5px;
+  font: var(--paragraph-text);
+}
+
+input[type=radio] {
+  height: 16px;
+  width: 16px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -663,12 +684,6 @@ img.highlight-image {
 #booking-hero-form form {
   display: grid;
   max-width: 400px;
-  gap: 10px;
-}
-
-#booking-hero-form label {
-  margin-top: 10px;
-  font: var(--lead-text);
   gap: 10px;
 }
 

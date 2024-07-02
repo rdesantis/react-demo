@@ -7,6 +7,12 @@ const BookingForm = (props) => {
         };
     };
 
+    const handleOptionChange = (value) => {
+        return (e) => {
+            dispatch({key: 'seating', value: value});
+        };
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const {availableDates, availableTimes, ...result} = state;
@@ -35,6 +41,21 @@ const BookingForm = (props) => {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
+            <label htmlFor="seating">Seating options</label>
+            <div className='radio'>
+                <label htmlFor="standard">Standard</label>
+                <input
+                    type="radio" id="standard" name="seating" value="standard"
+                    checked={state.seating === "standard"} onChange={handleOptionChange('standard')}
+                />
+            </div>
+            <div className='radio'>
+                <label htmlFor="outside">Outside</label>
+                <input
+                    type="radio" id="outside" name="seating" value="outside"
+                    checked={state.seating === "outside"} onChange={handleOptionChange('outside')}
+                />
+            </div>
             <input type="submit" className="button" value="Let's go!" />
         </form>
     );

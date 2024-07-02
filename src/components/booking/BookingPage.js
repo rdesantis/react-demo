@@ -30,6 +30,7 @@ const BookingPage = () => {
         resTime: initialAvailableTimes[0],
         guests: 2,
         occasion: '',
+        seating: 'standard',
 
         availableDates: availableDates,
         availableTimes: initialAvailableTimes,
