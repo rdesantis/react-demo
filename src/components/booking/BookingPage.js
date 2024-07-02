@@ -40,9 +40,9 @@ const BookingPage = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const navigate = useNavigate();
-    const handleSubmit = (state) => {
+    const handleSubmit = (booking) => {
         const queryString = Object
-            .entries(state)
+            .entries(booking)
             .map(entry => entry
                 .map(key_or_value => encodeURIComponent(key_or_value))
                 .join('='))
