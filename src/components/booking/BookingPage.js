@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
@@ -38,9 +39,15 @@ const BookingPage = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    const navigate = useNavigate();
     const handleSubmit = (state) => {
-        // TODO
-        alert(`submitted: ${JSON.stringify(state)}`);
+        const queryString = Object
+            .entries(state)
+            .map(entry => entry
+                .map(key_or_value => encodeURIComponent(key_or_value))
+                .join('='))
+            .join('&');
+        navigate(`/personal?${queryString}`);
     };
 
     return (

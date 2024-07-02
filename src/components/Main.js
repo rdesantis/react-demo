@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import BookingPage from "./booking/BookingPage";
+import PersonalPage from "./personal/PersonalPage";
 import UnderConstruction from "./UnderConstruction";
 
 const Main = () => {
@@ -11,6 +12,7 @@ const Main = () => {
                 <Route path='/about' element={<UnderConstruction />}></Route>
                 <Route path='/menu' element={<UnderConstruction />}></Route>
                 <Route path='/reservations' element={<BookingPage />}></Route>
+                <Route path='/personal' element={<PersonalPage />}></Route>
                 <Route path='/order-online' element={<UnderConstruction />}></Route>
                 <Route path='/login' element={<UnderConstruction />}></Route>
             </Routes>

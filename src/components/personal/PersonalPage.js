@@ -2,7 +2,7 @@ import PersonalHero from "./Hero";
 import PersonalDetails from "./Details";
 import PersonalAction from "./Action";
 
-const Personal = () => {
+const PersonalPage = () => {
     return (
         <>
             <PersonalHero sectionStyle='hero' />
@@ -12,4 +12,4 @@ const Personal = () => {
     );
 }
 
-export default Personal;
+export default PersonalPage;
