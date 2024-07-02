@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 import BookingForm from "./BookingForm";
-import {initializeAPI, fetchAPI, submitAPI} from "../../APIMock";
+import {initializeAPI, fetchAPI} from "../../APIMock";
 
 export const initializeDates = () => {
     return initializeAPI();
