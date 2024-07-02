@@ -81,7 +81,7 @@ const PersonalForm = (props) => {
             <LabeledTextInput label="Password" id="password" field='password' type='password' context={context} /> */}
             {labeledTextInput("First name", "first-name", 'firstName')}
             {labeledTextInput("Last name", "last-name", 'lastName')}
-            {labeledTextInput("Phone number name", "phone", 'phone')}
+            {labeledTextInput("Phone number", "phone", 'phone')}
             {labeledTextInput("Email", "email", 'email', 'email')}
             {labeledTextInput("Password", "password", 'password', 'password')}
             <label htmlFor='request'>Special request (optional)</label>
