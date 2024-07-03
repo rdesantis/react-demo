@@ -808,6 +808,12 @@ img.highlight-image {
   grid-area: confirm-hero-reservation;
 }
 
+#confirm-hero-reservation .link:link, .link:visited {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bolder;
+}
+
 #confirm-hero-image {
   grid-area: confirm-hero-image;
 }

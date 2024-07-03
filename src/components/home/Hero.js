@@ -5,7 +5,7 @@ import MajorSection from "../MajorSection";
 
 const HomeHero = (props) => {
     const navigate = useNavigate();
-    const reservations = () => {navigate('/reservations');}
+    const book = () => {navigate('/book');}
 
     return (
         <MajorSection id='home-hero' sectionStyle={props.sectionStyle}>
@@ -15,7 +15,7 @@ const HomeHero = (props) => {
                     We are a family owned Mediterranean restaurant,
                     focused on traditional recipes served with a modern twist.
                 </p>
-                <button className='button' onClick={reservations}>Reserve a table</button>
+                <button className='button' onClick={book}>Reserve a table</button>
             </section>
             <section id='home-hero-image'>
                 <img src='food/Grilled Fish.png' alt='grilled fish'/>

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
@@ -18,6 +18,11 @@ const ConfirmationPage = () => {
                 <h4>Your reservation is confirmed!</h4>
                 <PersonalDetails personal={personal} />
                 <BookingDetails booking={booking} />
+                <p>
+                    To update your reservation, please visit our
+                    <Link to='/reservations' className='link'> Reservations </Link>
+                    page
+                </p>
             </section>
             <section id='confirm-hero-image'>
                 {(booking.seating === 'standard') ?
