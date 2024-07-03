@@ -72,7 +72,7 @@ p {
   margin: 5px;
 }
 
-input:not([type=submit]), select, option {
+input:not([type=submit]), textarea, select, option {
   font: var(--lead-text);
   border-radius: var(--input-border-radius);
   height: 1.5em;
@@ -89,11 +89,11 @@ input:not([type=submit]), select, option {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
   filter: brightness(110%);
 }
 
-.button:active {
+.button:active:not(:disabled) {
   box-shadow: inset 0px 0px 10px var(--primary-green);
 }
 
@@ -101,6 +101,10 @@ label {
   margin-top: 10px;
   font: var(--lead-text);
   gap: 10px;
+}
+
+.field-error {
+  color: red;
 }
 
 .radio {
@@ -675,6 +679,13 @@ img.highlight-image {
 
 #booking-hero-images img {
   width: 45%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--primary-green);
+}
+
+#booking-hero-images img.selected-image {
+  border-color: white;
 }
 
 #booking-hero-form {
@@ -706,6 +717,62 @@ img.highlight-image {
   }
 
   #booking-hero-images img {
+    width: 100%;
+  }
+}
+
+/****************************************
+* Personal page: Hero
+*/
+
+#personal-hero {
+  padding-bottom: 20px;
+
+  display: grid;
+  grid-template-areas: "personal-hero-reservation" "personal-hero-form";
+}
+
+#personal-hero-reservation {
+  grid-area: personal-hero-reservation;
+}
+
+#personal-hero-image img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#personal-hero-form {
+  grid-area: personal-hero-form;
+}
+
+#personal-hero-form form {
+  display: grid;
+  max-width: 400px;
+  gap: 10px;
+}
+
+#personal-hero-form textarea {
+  height: 4em;
+}
+
+#personal-hero-form input[type=submit] {
+  margin: auto;
+  margin-top: 40px;
+}
+
+@media (min-width: 750px) {
+  #personal-hero {
+    grid-template-areas:
+      "personal-hero-header personal-hero-header personal-hero-header"
+      "personal-hero-reservation . personal-hero-form";
+    grid-template-columns: 10fr 1fr 10fr;
+  }
+
+  #personal-hero-image {
+    display: grid;
+  }
+
+  #personal-hero-image img {
     width: 100%;
   }
 }

@@ -39,6 +39,10 @@ const BookingPage = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    const selectedImageClass = (seating) => {
+        return (seating === state.seating) ? 'selected-image' : '';
+    }
+
     const navigate = useNavigate();
     const handleSubmit = (booking) => {
         navigate('/personal', { state: booking });
@@ -51,8 +55,8 @@ const BookingPage = () => {
                 <h3>Find a table for any occasion</h3>
             </section>
             <section id='booking-hero-images'>
-                <img src='restaurant interior.jpg' alt='interior seating' />
-                <img src='restaurant deck.jpg' alt='deck seating' />
+                <img src='restaurant interior.jpg' alt='interior seating' className={selectedImageClass('standard')} />
+                <img src='restaurant deck.jpg' alt='deck seating' className={selectedImageClass('outside')} />
             </section>
             <section id='booking-hero-form'>
                 <BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />

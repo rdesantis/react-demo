@@ -1,7 +1,7 @@
 const BookingDetails = (props) => {
     const booking = props.details;
     return (
-        <table>
+        <table className='booking'>
             <tr><td>Date:</td><td>{booking.resDate}</td></tr>
             <tr><td>Time:</td><td>{booking.resTime}</td></tr>
             <tr><td>Number of guests:</td><td>{booking.guests}</td></tr>

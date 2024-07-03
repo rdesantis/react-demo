@@ -34,18 +34,18 @@ const PersonalPage = () => {
 
     return (
         <MajorSection id='personal-hero' sectionStyle='hero'>
-            <section id='personal-hero-text'>
+            <section id='personal-hero-header'>
                 <HeroHeader />
+            </section>
+            <section id='personal-hero-reservation'>
                 <h3>Claim your reservation</h3>
-            </section>
-            <section id='personal-hero-booking'>
                 <BookingDetails details={booking} />
-            </section>
-            <section id='personal-hero-image'>
-                {(booking.seating === 'standard') ?
-                    <img src='restaurant interior.jpg' alt='interior seating' /> :
-                    <img src='restaurant deck.jpg' alt='deck seating' />
-                }
+                <section id='personal-hero-image'>
+                    {(booking.seating === 'standard') ?
+                        <img src='restaurant interior.jpg' alt='interior seating' /> :
+                        <img src='restaurant deck.jpg' alt='deck seating' />
+                    }
+                </section>
             </section>
             <section id='personal-hero-form'>
                 <PersonalForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
