@@ -41,13 +41,7 @@ const BookingPage = () => {
 
     const navigate = useNavigate();
     const handleSubmit = (booking) => {
-        const queryString = Object
-            .entries(booking)
-            .map(entry => entry
-                .map(key_or_value => encodeURIComponent(key_or_value))
-                .join('='))
-            .join('&');
-        navigate(`/personal?${queryString}`);
+        navigate('/personal', { state: booking });
     };
 
     return (
