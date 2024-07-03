@@ -1,22 +1,28 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import {BrowserRouter} from "react-router-dom"
+
+import {initializeAPI, fetchAPI} from "./APIMock";
 import BookingPage, {initializeDates, updateTimes} from './components/booking/BookingPage';
 import BookingForm from './components/booking/BookingForm';
 
 test('Renders the BookingPage header', () => {
-  render(<BookingPage />);
+  render(<BrowserRouter><BookingPage /></BrowserRouter>);
   const headingElement = screen.getByText("Find a table for any occasion");
   expect(headingElement).toBeInTheDocument();
 });
 
 test('User can submit the BookingForm', () => {
+  const availableDates = initializeAPI(new Date('2024-06-28T12:00:00.000+05:00'));
+  const availableTimes = fetchAPI('6/28/2024');
+
   let state = {
-    dateIndex: 0,
-    timeIndex: 0,
+    resDate: '6/28/2024',
+    resTime: '20:00',
     guests: 2,
     occasion: '',
 
-    availableDates: ['6/28/2024', '6/29/2024'],
-    availableTimes: ['20:00', '21:00', '22:00'],
+    availableDates: availableDates,
+    availableTimes: availableTimes,
   };
   const dispatch = ({key, value}) => {state[key] = value;};
 
@@ -24,17 +30,17 @@ test('User can submit the BookingForm', () => {
   render(<BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />);
 
   const dateInput = screen.getByLabelText(/Choose date/);
-  fireEvent.change(dateInput, { target: { value: 1 } });
+  fireEvent.change(dateInput, { target: { value: '6/29/2024' } });
 
   const timeInput = screen.getByLabelText(/Choose time/);
-  fireEvent.change(timeInput, { target: { value: 2 } });
+  fireEvent.change(timeInput, { target: { value: '21:00' } });
 
-  const submitButton = screen.getByDisplayValue("Let's go!");
+  const submitButton = screen.getByDisplayValue("Continue");
   fireEvent.click(submitButton);
 
   expect(handleSubmit).toHaveBeenCalledWith({
-    dateIndex: 1,
-    timeIndex: 2,
+    resDate: '6/29/2024',
+    resTime: '21:00',
     guests: 2,
     occasion: ''
   });
@@ -45,5 +51,6 @@ test('Initializes booking dates', () => {
 });
 
 test('Updates booking times', () => {
-  expect(updateTimes(0)[0]).toBe('20:00');
+  let [firstDate] = initializeDates();
+  expect(updateTimes(firstDate)[0]).toBe('20:00');
 });

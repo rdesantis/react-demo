@@ -56,7 +56,7 @@ const BookingForm = ({reducer, onSubmit}) => {
                     checked={state.seating === "outside"} onChange={handleOptionChange('outside')}
                 />
             </div>
-            <input type="submit" className="button" value="Let's go!" />
+            <input type="submit" className="button" value="Continue" />
         </form>
     );
 }
