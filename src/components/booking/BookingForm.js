@@ -1,5 +1,5 @@
-const BookingForm = (props) => {
-    const [state, dispatch] = props.reducer;
+const BookingForm = ({reducer, onSubmit}) => {
+    const [state, dispatch] = reducer;
 
     const handleChange = (key) => {
         return (e) => {
@@ -16,7 +16,7 @@ const BookingForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const {availableDates, availableTimes, ...result} = state;
-        props.onSubmit(result);
+        onSubmit(result);
     };
 
     const buildOptions = (key) => {
