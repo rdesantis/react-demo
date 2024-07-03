@@ -5,6 +5,7 @@ import HeroHeader from "../HeroHeader";
 import MajorSection from "../MajorSection";
 import BookingDetails from "../booking/BookingDetails";
 import PersonalForm from "./PersonalForm";
+import {submitAPI} from "../../APIMock";
 
 const PersonalPage = () => {
     const location = useLocation();
@@ -27,7 +28,12 @@ const PersonalPage = () => {
 
     const navigate = useNavigate();
     const handleSubmit = (personal) => {
-        navigate('/confirmation', { state: {booking, personal} });
+        if (submitAPI()) {
+            navigate('/confirmation', { state: {booking, personal} });
+        }
+        else {
+            alert("we're sorry, your reservation could not be confirmed. Please try again.")
+        }
     };
 
     return (
