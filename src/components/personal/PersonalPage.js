@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import HeroHeader from "../HeroHeader";
@@ -16,7 +16,7 @@ const PersonalPage = () => {
         return newState;
     }
 
-    const initialState = {
+    const defaultState = {
         firstName: '',
         lastName: '',
         phone: '',
@@ -24,7 +24,14 @@ const PersonalPage = () => {
         password: ''
     };
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, null, () => {
+        let savedState = localStorage.getItem('personal');
+        return savedState ? JSON.parse(savedState) : defaultState;
+    });
+
+    useEffect(() => {
+        localStorage.setItem('personal', JSON.stringify(state));
+    }, [state]);
 
     const navigate = useNavigate();
     const handleSubmit = (personal) => {

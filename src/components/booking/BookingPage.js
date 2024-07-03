@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import HeroHeader from "../HeroHeader";
@@ -26,7 +26,7 @@ const BookingPage = () => {
     const availableDates = initializeDates();
     const initialAvailableTimes = updateTimes(availableDates[0]);
 
-    const initialState = {
+    const defaultState = {
         resDate: availableDates[0],
         resTime: initialAvailableTimes[0],
         guests: 2,
@@ -37,7 +37,14 @@ const BookingPage = () => {
         availableTimes: initialAvailableTimes,
     };
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, null, () => {
+        let savedState = localStorage.getItem('booking');
+        return savedState ? JSON.parse(savedState) : defaultState;
+    });
+
+    useEffect(() => {
+        localStorage.setItem('booking', JSON.stringify(state));
+    }, [state]);
 
     const selectedImageClass = (seating) => {
         return (seating === state.seating) ? 'selected-image' : '';
