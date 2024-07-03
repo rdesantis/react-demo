@@ -20,13 +20,13 @@ const PersonalForm = ({reducer, onSubmit}) => {
 
     const labeledTextInput = (label, id, field, type) => {
         type = type ?? 'text';
-        const message = validationMessage(label, field);
+        let message;
         return (<>
             <label htmlFor={id}>{label}</label>
             <input type={type} id={id} value={state[field]} onChange={handleChange(field)}
                 onBlur={() => setIsTouched({...isTouched, [field]: true})} />
             {
-                (isTouched[field] && message) ?
+                (isTouched[field] && (message = validationMessage(label, field))) ?
                     <p className="field-error">{message}</p> :
                     null
             }
@@ -40,7 +40,7 @@ const PersonalForm = ({reducer, onSubmit}) => {
     };
 
     const isAnyFieldInvalid = () => {
-        return !Object.keys(state).every(key => (validationMessage('', key) === null));
+        return !Object.keys(state).every(key => (validationMessage(key, key) === null));
     };
 
     return (

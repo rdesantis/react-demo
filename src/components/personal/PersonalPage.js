@@ -27,14 +27,9 @@ const PersonalPage = () => {
 
     const navigate = useNavigate();
     const handleSubmit = (personal) => {
-        alert(JSON.stringify({...booking, ...personal}));
-        // const queryString = Object
-        //     .entries({...booking, ...personal})
-        //     .map(entry => entry
-        //         .map(key_or_value => encodeURIComponent(key_or_value))
-        //         .join('='))
-        //     .join('&');
-        // navigate(`/confirm?${queryString}`);
+        const result = {...booking, ...personal};
+        alert(JSON.stringify(result));
+        // navigate('/confirm', { state: result });
     };
 
     return (
@@ -47,8 +42,10 @@ const PersonalPage = () => {
                 <BookingDetails details={booking} />
             </section>
             <section id='personal-hero-image'>
-                <img src='restaurant interior.jpg' alt='interior seating' />
-                <img src='restaurant deck.jpg' alt='deck seating' />
+                {(booking.seating === 'standard') ?
+                    <img src='restaurant interior.jpg' alt='interior seating' /> :
+                    <img src='restaurant deck.jpg' alt='deck seating' />
+                }
             </section>
             <section id='personal-hero-form'>
                 <PersonalForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
