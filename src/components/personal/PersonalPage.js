@@ -27,9 +27,7 @@ const PersonalPage = () => {
 
     const navigate = useNavigate();
     const handleSubmit = (personal) => {
-        const result = {...booking, ...personal};
-        alert(JSON.stringify(result));
-        // navigate('/confirm', { state: result });
+        navigate('/confirmation', { state: {booking, personal} });
     };
 
     return (
@@ -38,8 +36,8 @@ const PersonalPage = () => {
                 <HeroHeader />
             </section>
             <section id='personal-hero-reservation'>
-                <h3>Claim your reservation</h3>
-                <BookingDetails details={booking} />
+                <h4>Tell us who this table is for...</h4>
+                <BookingDetails booking={booking} />
                 <section id='personal-hero-image'>
                     {(booking.seating === 'standard') ?
                         <img src='restaurant interior.jpg' alt='interior seating' /> :

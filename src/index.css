@@ -253,6 +253,14 @@ footer .socials li {
   display: block;
 }
 
+.booking, .personal {
+  margin-bottom: 20px;
+}
+
+.booking td:first-child, .personal td:first-child {
+  font-weight: bolder;
+}
+
 .major-section {
   max-width: var(--major-section-width);
   margin: 0 auto;
@@ -729,7 +737,11 @@ img.highlight-image {
   padding-bottom: 20px;
 
   display: grid;
-  grid-template-areas: "personal-hero-reservation" "personal-hero-form";
+  grid-template-areas: "personal-hero-header" "personal-hero-reservation" "personal-hero-form";
+}
+
+#personal-hero-header {
+  grid-area: personal-hero-header
 }
 
 #personal-hero-reservation {
@@ -773,6 +785,51 @@ img.highlight-image {
   }
 
   #personal-hero-image img {
+    width: 100%;
+  }
+}
+
+/****************************************
+* Confirmation page: Hero
+*/
+
+#confirm-hero {
+  padding-bottom: 20px;
+
+  display: grid;
+  grid-template-areas: "confirm-hero-header" "confirm-hero-reservation" "confirm-hero-image";
+}
+
+#confirm-hero-header {
+  grid-area: confirm-hero-header;
+}
+
+#confirm-hero-reservation {
+  grid-area: confirm-hero-reservation;
+}
+
+#confirm-hero-image {
+  grid-area: confirm-hero-image;
+}
+
+#confirm-hero-image img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (min-width: 750px) {
+  #confirm-hero {
+    grid-template-areas:
+      "confirm-hero-header confirm-hero-header confirm-hero-header"
+      "confirm-hero-reservation . confirm-hero-image";
+    grid-template-columns: 10fr 1fr 10fr;
+  }
+
+  #confirm-hero-image {
+    display: grid;
+  }
+
+  #confirm-hero-image img {
     width: 100%;
   }
 }

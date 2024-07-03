@@ -52,7 +52,7 @@ const BookingPage = () => {
         <MajorSection id='booking-hero' sectionStyle='hero'>
             <section id='booking-hero-text'>
                 <HeroHeader />
-                <h3>Find a table for any occasion</h3>
+                <h4>Find a table for any occasion!</h4>
             </section>
             <section id='booking-hero-images'>
                 <img src='restaurant interior.jpg' alt='interior seating' className={selectedImageClass('standard')} />
