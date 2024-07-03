@@ -1,9 +1,15 @@
+let today = null;
+let slots = null;
+let datesMap = null;
 
-let slots;
-let datesMap;
+export const initializeAPI = (date) => {
+    // If this method has already been called (e.g., for testing)
+    // and is now being called again without an explicit date
+    // or with the same date as used previously, return immediately
+    // leaving the established slots intact.
+    if (!!today && (!date || (date === today))) return getDates();
 
-export const initializeAPI = (today) => {
-    today = today ?? new Date();
+    today = date ?? new Date();
     let tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
     let dayafter = new Date(tomorrow); dayafter.setDate(tomorrow.getDate() + 1);
 
@@ -32,6 +38,10 @@ export const initializeAPI = (today) => {
     datesMap = new Map();
     slots.forEach((slot, index) => datesMap.set(slot.resDate, index));
 
+    return getDates();
+};
+
+const getDates = () => {
     return slots.map(slot => slot.resDate);
 };
 

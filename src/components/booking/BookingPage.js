@@ -29,7 +29,7 @@ const BookingPage = () => {
     const defaultState = {
         resDate: availableDates[0],
         resTime: initialAvailableTimes[0],
-        guests: 2,
+        guests: '2',
         occasion: '',
         seating: 'standard',
 
