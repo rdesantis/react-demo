@@ -7,7 +7,7 @@ import BookingForm from './components/booking/BookingForm';
 
 test('Renders the BookingPage header', () => {
   render(<BrowserRouter><BookingPage /></BrowserRouter>);
-  const headingElement = screen.getByText("Find a table for any occasion");
+  const headingElement = screen.getByText("Find a table for any occasion!");
   expect(headingElement).toBeInTheDocument();
 });
 
