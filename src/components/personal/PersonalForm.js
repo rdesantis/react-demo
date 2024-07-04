@@ -22,7 +22,7 @@ const PersonalForm = ({reducer, onSubmit}) => {
         type = type ?? 'text';
         let message;
         return (<>
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id}>{label}<sup>*</sup></label>
             <input type={type} id={id} value={state[field]} onChange={handleChange(field)}
                 onBlur={() => setIsTouched({...isTouched, [field]: true})} />
             {
