@@ -19,20 +19,37 @@ const BookingForm = ({reducer, onSubmit}) => {
         onSubmit(result);
     };
 
+    const dropdownOptions = (label, id, field, choices) => {
+        return (
+            <>
+                <label htmlFor={id}>{label}</label>
+                <select id={id} value={state[field]} onChange={handleChange(field)}>
+                    {buildOptions(choices)}
+                </select>
+            </>
+        );
+    };
+
     const buildOptions = (key) => {
         return state[key].map((dateOrTime) => <option key={dateOrTime}>{dateOrTime}</option>);
-    }
+    };
+
+    const seatingOption = (label, id, value) => {
+        return (
+            <div className='radio'>
+                <label htmlFor={id}>{label}</label>
+                <input
+                    type="radio" id={id} name={id} value={value}
+                    checked={state.seating === value} onChange={handleOptionChange(value)}
+                />
+            </div>
+        );
+    };
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="res-date">Choose date</label>
-            <select id="res-date" value={state.resDate} onChange={handleChange('resDate')}>
-                {buildOptions('availableDates')}
-            </select>
-            <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" value={state.resTime} onChange={handleChange('resTime')}>
-                {buildOptions('availableTimes')}
-            </select>
+            {dropdownOptions('Choose date', 'res-date', 'resDate', 'availableDates')}
+            {dropdownOptions('Choose time', 'res-time', 'resTime', 'availableTimes')}
             <label htmlFor="guests">Number of guests</label>
             <input type="number" placeholder="2" min="1" max="10" id="guests" value={state.guests} onChange={handleChange('guests')} />
             <label htmlFor="occasion">Occasion</label>
@@ -42,20 +59,8 @@ const BookingForm = ({reducer, onSubmit}) => {
                 <option>Anniversary</option>
             </select>
             <label htmlFor="seating">Seating options</label>
-            <div className='radio'>
-                <label htmlFor="standard">Standard</label>
-                <input
-                    type="radio" id="standard" name="seating" value="standard"
-                    checked={state.seating === "standard"} onChange={handleOptionChange('standard')}
-                />
-            </div>
-            <div className='radio'>
-                <label htmlFor="outside">Outside</label>
-                <input
-                    type="radio" id="outside" name="seating" value="outside"
-                    checked={state.seating === "outside"} onChange={handleOptionChange('outside')}
-                />
-            </div>
+            {seatingOption('Standard', 'standard', 'standard')}
+            {seatingOption('Outside', 'outside', 'outside')}
             <input type="submit" className="button" value="Continue" />
         </form>
     );
