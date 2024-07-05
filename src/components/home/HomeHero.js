@@ -5,7 +5,10 @@ import MajorSection from "../MajorSection";
 
 const HomeHero = (props) => {
     const navigate = useNavigate();
-    const book = () => {navigate('/book');}
+    const book = () => {
+        localStorage.clear();
+        navigate('/book');
+    }
 
     return (
         <MajorSection id='home-hero' sectionStyle={props.sectionStyle}>

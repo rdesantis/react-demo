@@ -47,8 +47,6 @@ test('Persists the BookingPage state', () => {
 
   expect(savedState.resDate).toBe('6/30/2024');
   expect(savedState.resTime).toBe('21:00');
-
-  localStorage.clear();
 });
 
 test('Retrieves the BookingPage state', () => {
@@ -77,8 +75,6 @@ test('Retrieves the BookingPage state', () => {
   expect(timeInput).toHaveTextContent('19:00');
   expect(guestsInput).toHaveValue(4);
   expect(occasionInput).toHaveTextContent('Birthday');
-
-  localStorage.clear();
 });
 
 const BookingFormScaffold = ({handleSubmit}) => {
