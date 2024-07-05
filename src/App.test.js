@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import { fireEvent, render, screen } from '@testing-library/react';
 import {BrowserRouter} from "react-router-dom"
 
@@ -46,6 +47,8 @@ test('Persists the BookingPage state', () => {
 
   expect(savedState.resDate).toBe('6/30/2024');
   expect(savedState.resTime).toBe('21:00');
+
+  localStorage.clear();
 });
 
 test('Retrieves the BookingPage state', () => {
@@ -74,13 +77,19 @@ test('Retrieves the BookingPage state', () => {
   expect(timeInput).toHaveTextContent('19:00');
   expect(guestsInput).toHaveValue(4);
   expect(occasionInput).toHaveTextContent('Birthday');
+
+  localStorage.clear();
 });
 
-test('Submits the BookingForm', () => {
+const BookingFormScaffold = ({handleSubmit}) => {
   const availableDates = forceAPIDates();
   const availableTimes = fetchAPI('6/28/2024');
 
-  let state = {
+  const reducer = (state, action) => {
+    let newState = {...state, [action.key]: action.value};
+    return newState;
+  }
+  const initialState = {
     resDate: '6/28/2024',
     resTime: '20:00',
     guests: 2,
@@ -89,10 +98,14 @@ test('Submits the BookingForm', () => {
     availableDates: availableDates,
     availableTimes: availableTimes,
   };
-  const dispatch = ({key, value}) => {state[key] = value;};
+  const [state, dispatch] = useReducer(reducer, initialState);;
 
+  return <BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
+};
+
+test('Submits the BookingForm', () => {
   const handleSubmit = jest.fn();
-  render(<BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />);
+  render(<BookingFormScaffold handleSubmit={handleSubmit} />);
 
   const dateInput = screen.getByLabelText(/Choose date/);
   const timeInput = screen.getByLabelText(/Choose time/);
@@ -110,18 +123,26 @@ test('Submits the BookingForm', () => {
   });
 });
 
-test('Validates the PersonalForm', () => {
-  let state = {
+const PersonalFormScaffold = ({handleSubmit}) => {
+  const reducer = (state, action) => {
+    let newState = {...state, [action.key]: action.value};
+    return newState;
+  }
+  const initialState = {
     firstName: 'first',
     lastName: 'last',
     phone: 'phone',
     email: 'email',
     password: 'password'
   };
-  const dispatch = ({key, value}) => {state[key] = value;};
+  const [state, dispatch] = useReducer(reducer, initialState);;
 
+  return <PersonalForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
+};
+
+test('Validates the PersonalForm', () => {
   const handleSubmit = jest.fn();
-  render(<PersonalForm reducer={[state, dispatch]} onSubmit={handleSubmit} />);
+  render(<PersonalFormScaffold handleSubmit={handleSubmit} />);
 
   const firstNameInput = screen.getByLabelText(/First name/);
   const lastNameInput = screen.getByLabelText(/Last name/);
@@ -132,21 +153,18 @@ test('Validates the PersonalForm', () => {
 
   fireEvent.change(firstNameInput, { target: { value: '' } });
 
-  const expectNoSubmitIfBlank = (field, restoredValue) => {
+  const expectSubmitDisabledIfBlank = (field, restoredValue) => {
     fireEvent.change(field, { target: { value: '' } });
-    // TODO: Figure out why this fails!!!
-    // expect(submitButton).toHaveAttribute('disabled');
-    // expect(submitButton).toBeDisabled();
+    expect(submitButton).toBeDisabled();
     fireEvent.change(field, { target: { value: restoredValue } });
-    expect(submitButton).not.toHaveAttribute('disabled');
     expect(submitButton).not.toBeDisabled();
   }
 
-  expectNoSubmitIfBlank(firstNameInput, 'first2');
-  expectNoSubmitIfBlank(lastNameInput, 'last2');
-  expectNoSubmitIfBlank(phoneInput, 'phone2');
-  expectNoSubmitIfBlank(emailInput, 'email2');
-  expectNoSubmitIfBlank(passwordInput, 'password2');
+  expectSubmitDisabledIfBlank(firstNameInput, 'first2');
+  expectSubmitDisabledIfBlank(lastNameInput, 'last2');
+  expectSubmitDisabledIfBlank(phoneInput, 'phone2');
+  expectSubmitDisabledIfBlank(emailInput, 'email2');
+  expectSubmitDisabledIfBlank(passwordInput, 'password2');
 
   fireEvent.click(submitButton);
   expect(handleSubmit).toHaveBeenCalledWith({
