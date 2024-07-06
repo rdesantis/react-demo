@@ -1,11 +1,12 @@
 import { useReducer } from "react";
 import { fireEvent, render, screen } from '@testing-library/react';
-import {BrowserRouter} from "react-router-dom"
+import { MemoryRouter } from "react-router-dom"
 
 import {initializeAPI, fetchAPI} from "./APIMock";
 import BookingPage, {initializeDates, updateTimes} from './components/booking/BookingPage';
 import BookingForm from './components/booking/BookingForm';
 import PersonalForm from './components/personal/PersonalForm';
+import PersonalPage from "./components/personal/PersonalPage";
 
 const forceAPIDates = () => {
   return initializeAPI(new Date('2024-06-28T12:00:00.000+05:00'));
@@ -23,7 +24,7 @@ test('Updates booking times', () => {
 });
 
 test('Renders the BookingPage header', () => {
-  render(<BrowserRouter><BookingPage /></BrowserRouter>);
+  render(<MemoryRouter><BookingPage /></MemoryRouter>);
   const headingElement = screen.getByText("Find a table for any occasion!");
   expect(headingElement).toBeInTheDocument();
 });
@@ -33,7 +34,7 @@ test('Persists the BookingPage state', () => {
 
   localStorage.clear();
 
-  render(<BrowserRouter><BookingPage /></BrowserRouter>);
+  render(<MemoryRouter><BookingPage /></MemoryRouter>);
 
   const dateInput = screen.getByLabelText(/Choose date/);
   const timeInput = screen.getByLabelText(/Choose time/);
@@ -64,7 +65,7 @@ test('Retrieves the BookingPage state', () => {
   };
   localStorage.setItem('booking', JSON.stringify(state));
 
-  render(<BrowserRouter><BookingPage /></BrowserRouter>);
+  render(<MemoryRouter><BookingPage /></MemoryRouter>);
 
   const dateInput = screen.getByLabelText(/Choose date/);
   const timeInput = screen.getByLabelText(/Choose time/);
@@ -127,6 +128,19 @@ test('Validates and submits the BookingForm', () => {
     guests: '3',
     occasion: ''
   });
+});
+
+test('Renders the PersonalPage header', () => {
+  let booking = {
+    resDate: '6/29/2024',
+    resTime: '19:00',
+    guests: '4',
+    occasion: 'Birthday'
+  };
+
+  render(<MemoryRouter initialEntries={[{state: booking}]}><PersonalPage /></MemoryRouter>);
+  const headingElement = screen.getByText("Tell us who this table is for...");
+  expect(headingElement).toBeInTheDocument();
 });
 
 const PersonalFormScaffold = ({handleSubmit}) => {
