@@ -99,22 +99,32 @@ const BookingFormScaffold = ({handleSubmit}) => {
   return <BookingForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
 };
 
-test('Submits the BookingForm', () => {
+const expectSubmitDisabledIfBlank = (submitButton, field, restoredValue) => {
+  fireEvent.change(field, { target: { value: '' } });
+  expect(submitButton).toBeDisabled();
+  fireEvent.change(field, { target: { value: restoredValue } });
+  expect(submitButton).not.toBeDisabled();
+}
+
+test('Validates and submits the BookingForm', () => {
   const handleSubmit = jest.fn();
   render(<BookingFormScaffold handleSubmit={handleSubmit} />);
 
   const dateInput = screen.getByLabelText(/Choose date/);
   const timeInput = screen.getByLabelText(/Choose time/);
+  const guestsInput = screen.getByLabelText(/Number of guests/);
   const submitButton = screen.getByDisplayValue("Continue");
 
   fireEvent.change(dateInput, { target: { value: '6/29/2024' } });
   fireEvent.change(timeInput, { target: { value: '21:00' } });
+  expectSubmitDisabledIfBlank(submitButton, guestsInput, '3');
+
   fireEvent.click(submitButton);
 
   expect(handleSubmit).toHaveBeenCalledWith({
     resDate: '6/29/2024',
     resTime: '21:00',
-    guests: 2,
+    guests: '3',
     occasion: ''
   });
 });
@@ -136,7 +146,7 @@ const PersonalFormScaffold = ({handleSubmit}) => {
   return <PersonalForm reducer={[state, dispatch]} onSubmit={handleSubmit} />
 };
 
-test('Validates the PersonalForm', () => {
+test('Validates and submits the PersonalForm', () => {
   const handleSubmit = jest.fn();
   render(<PersonalFormScaffold handleSubmit={handleSubmit} />);
 
@@ -147,20 +157,11 @@ test('Validates the PersonalForm', () => {
   const passwordInput = screen.getByLabelText(/Password/);
   const submitButton = screen.getByDisplayValue("Let's go!");
 
-  fireEvent.change(firstNameInput, { target: { value: '' } });
-
-  const expectSubmitDisabledIfBlank = (field, restoredValue) => {
-    fireEvent.change(field, { target: { value: '' } });
-    expect(submitButton).toBeDisabled();
-    fireEvent.change(field, { target: { value: restoredValue } });
-    expect(submitButton).not.toBeDisabled();
-  }
-
-  expectSubmitDisabledIfBlank(firstNameInput, 'first2');
-  expectSubmitDisabledIfBlank(lastNameInput, 'last2');
-  expectSubmitDisabledIfBlank(phoneInput, 'phone2');
-  expectSubmitDisabledIfBlank(emailInput, 'email2');
-  expectSubmitDisabledIfBlank(passwordInput, 'password2');
+  expectSubmitDisabledIfBlank(submitButton, firstNameInput, 'first2');
+  expectSubmitDisabledIfBlank(submitButton, lastNameInput, 'last2');
+  expectSubmitDisabledIfBlank(submitButton, phoneInput, 'phone2');
+  expectSubmitDisabledIfBlank(submitButton, emailInput, 'email2');
+  expectSubmitDisabledIfBlank(submitButton, passwordInput, 'password2');
 
   fireEvent.click(submitButton);
   expect(handleSubmit).toHaveBeenCalledWith({
