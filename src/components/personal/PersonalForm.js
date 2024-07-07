@@ -52,7 +52,10 @@ const PersonalForm = ({reducer, onSubmit}) => {
             {labeledTextInput("Password", "password", 'password', 'password')}
             <label htmlFor='request'>Special request (optional)</label>
             <textarea id='request' value={state.request} onChange={handleChange('request')} />
-            <input type="submit" className="button" value="Let's go!" disabled={isAnyFieldInvalid()} />
+            <input
+                type="submit" className="button" value="Let's go!" disabled={isAnyFieldInvalid()}
+                aria-label='Finalize your booking'
+            />
         </form>
     );
 }

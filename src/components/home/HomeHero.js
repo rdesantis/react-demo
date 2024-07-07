@@ -18,7 +18,11 @@ const HomeHero = (props) => {
                     We are a family owned Mediterranean restaurant,
                     focused on traditional recipes served with a modern twist.
                 </p>
-                <button className='button' onClick={book}>Reserve a table</button>
+                <button className='button' onClick={book}
+                    aria-label='First step for booking a table'
+                >
+                    Reserve a table
+                </button>
             </section>
             <section id='home-hero-image'>
                 <img src='food/Grilled Fish.png' alt='grilled fish'/>

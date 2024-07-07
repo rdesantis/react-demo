@@ -77,7 +77,10 @@ const BookingForm = ({reducer, onSubmit}) => {
             <label htmlFor="seating">Seating options</label>
             {seatingOption('Standard', 'standard', 'standard')}
             {seatingOption('Outside', 'outside', 'outside')}
-            <input type="submit" className="button" value="Continue" disabled={!!guestsValidationMessage()} />
+            <input
+                type="submit" className="button" value="Continue" disabled={!!guestsValidationMessage()}
+                aria-label='Next step for booking your table'
+            />
         </form>
     );
 }
