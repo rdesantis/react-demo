@@ -14,6 +14,10 @@ All form inputs are validated.  Try entering invalid data or leaving fields blan
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs all the JavaScript packages that this app depends on.  This command must be run once before either of the next two commands can run.
+
 ### `npm start`
 
 Runs the app in the development mode.\
