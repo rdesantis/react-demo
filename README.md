@@ -1,6 +1,8 @@
 # Little Lemon Booking: React demo app
 
-This app implements a table booking system for the fictional Little Lemon restaurant.  It demonstrates the usage of many modern HTML, CSS, JavaScript and React features.  The code was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  To run the app or the unit tests, you must have a recent version of [npm](https://www.npmjs.com/) installed.
+This app implements a table booking system for the fictional Little Lemon restaurant.  It demonstrates the usage of many modern HTML, CSS, JavaScript and React features.
+
+The code was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  To run the app or the unit tests, you must have a recent version of [npm](https://www.npmjs.com/) installed.
 
 Run the app as explained below.  On the home page, click the **Reserve a table** button to begin the table booking workflow.
 
