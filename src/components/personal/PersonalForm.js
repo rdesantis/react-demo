@@ -34,9 +34,24 @@ const PersonalForm = ({reducer, onSubmit}) => {
     };
 
     const validationMessage = (label, field) => {
-        return (field === 'password') ?
-            (state.password.length < 6 ? `${label} must be at least 6 characters` : null) :
-            (state[field].length === 0 ? `${label} is required` : null);
+        if (state[field].length === 0) {
+            return `Please provide a value for ${label}`;
+        }
+        switch (field) {
+            case 'email': {
+                const lastAtIndex = state.email.lastIndexOf('@');
+                return (
+                    (lastAtIndex === -1) ? `Please include an '@' in the middle of ${label}` :
+                    (lastAtIndex === 0)  ? `Please include characters before the '@' in ${label}` :
+                    (lastAtIndex === (state.email.length - 1)) ? `Please include characters after the last '@' in ${label}` :
+                    null
+                );
+            }
+            case 'password':
+                return (state.password.length < 6) ? `Please include at least 6 characters in ${label}` : null;
+            default:
+                return null;
+        }
     };
 
     const isAnyFieldInvalid = () => {
