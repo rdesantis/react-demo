@@ -39,7 +39,7 @@ const BookingForm = ({reducer, onSubmit}) => {
             (state.guests.length === 0) ||
             (Number(state.guests) < 1) ||
             (10 < Number(state.guests)) ?
-                'Number of guests must be between 1 and 10' :
+                'Please enter a value between 1 and 10 for number of guests' :
                 null
         );
     };
